@@ -4,6 +4,7 @@ $(function() {
   var nextPageToken;
   var prevPageToken;
   var userQuery;
+  var youtubeApiKey = (window.APP_CONFIG && window.APP_CONFIG.YOUTUBE_API_KEY) || 'YOUR_YOUTUBE_API_KEY';
 
   /* -- Event Listeners -- */
   $('form').submit(function(event) {
@@ -32,7 +33,7 @@ $(function() {
         data: {
           part: 'snippet',
           maxResults: 12,
-          key: 'AIzaSyDm71dLA-nxg3KI4eSUYrAh8V5lp_gOoZI',
+          key: youtubeApiKey,
           q: userSearch
         }
       })
@@ -52,7 +53,7 @@ $(function() {
           part: 'snippet',
           pageToken: nextPageToken,
           maxResults: 12,
-          key: 'AIzaSyDm71dLA-nxg3KI4eSUYrAh8V5lp_gOoZI',
+          key: youtubeApiKey,
           q: userQuery
         }
       })
@@ -72,7 +73,7 @@ $(function() {
           part: 'snippet',
           pageToken: prevPageToken,
           maxResults: 12,
-          key: 'AIzaSyDm71dLA-nxg3KI4eSUYrAh8V5lp_gOoZI',
+          key: youtubeApiKey,
           q: userQuery
         }
       })
